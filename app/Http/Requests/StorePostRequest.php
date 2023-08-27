@@ -26,7 +26,7 @@ class StorePostRequest extends FormRequest
         return [
             'title' => 'required| max:100',
             'cover_image' => 'image|max:250',
-            'types_id'    => 'required|exists:types.id'
+            'types_id'    => 'required|exists:types,id'
         ];
     }
 

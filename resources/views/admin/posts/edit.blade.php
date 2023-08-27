@@ -39,6 +39,18 @@
                             @enderror
                         </div>
                         <div class="class-group">
+                            <label class="control-label">Types</label>
+                            <select name="types_id" id="types_id" class="form-control @error('types_id')is-invalid @enderror">
+                                <option value="">Select type</option>
+                                @foreach($types as $type)
+                                    <option {{ $type->id == old('types_id', $post->types_id) ? 'selected' : '' }} value="{{ $type->id }}"> {{  $type->name }} </option>
+                                @endforeach
+                            </select>
+                            @error('types_id') 
+                                <div class="text-danger"> {{ $message }} </div>
+                            @enderror
+                        </div>
+                        <div class="class-group">
                             <label class="control-label">Content</label>
                             <textarea id="content" name="content" class="form-control" placeholder="Content">{{ old('content') ?? $post->content }}</textarea>
                         </div>
