@@ -18,6 +18,9 @@
                     <img src=" {{ asset('storage/'.$post->cover_image) }} ">
                 </div>
                 <div class="col-12">
+                    {{ $post->type->name }}
+                </div>
+                <div class="col-12">
                     <p> {{ $post->content }} </p>
                 </div>
             </div>

@@ -25,7 +25,8 @@ class StorePostRequest extends FormRequest
     {
         return [
             'title' => 'required| max:100',
-            'cover_image' => 'image|max:250'
+            'cover_image' => 'image|max:250',
+            'types_id'    => 'required|exists:types.id'
         ];
     }
 
@@ -34,7 +35,9 @@ class StorePostRequest extends FormRequest
             'title.required'    => 'Il titolo è obbligatorio',
             'title.max'         => 'Il titolo deve essere lungo massimo :max caratteri',
             'cover_image.image' => 'Il file inviato deve avere uno dei seguenti formati: jpg, jpeg, zip',
-            'cover_image.image' => 'Il nome del file deve essere lungo al massimo :max caratteri'
+            'cover_image.image' => 'Il nome del file deve essere lungo al massimo :max caratteri',
+            'types_id.required' => 'Devi elezionare una tipologia',
+            'types_id.exists'   => 'Cateoria selezionata non valida'
         ];
     }
 }
